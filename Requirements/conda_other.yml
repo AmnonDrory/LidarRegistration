@@ -1,0 +1,22 @@
+name: STLR_OTHER
+channels:
+  - defaults
+dependencies:
+  - pip
+  - python=3.7
+  - cudatoolkit=10.2
+  - torchaudio
+  - pytorch
+  - torchvision
+  - openblas-devel
+  - tensorboard
+  - matplotlib
+  - pandas
+  - plyfile
+  - scikit-learn
+  - opencv
+  - easydict
+  - sortednp
+  - open3d
+  - scipy
+prefix: /home/amnon/.conda/envs/BBR_FCGF

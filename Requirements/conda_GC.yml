@@ -1,0 +1,12 @@
+name: STLR_GC
+channels:
+  - defaults
+dependencies:
+  - python=3.7.9
+  - numpy
+  - openblas-devel=0.3.2
+  - cudatoolkit=10.2
+  - torchvision==0.8.2=cpu_py37ha229d99_0
+  - pytorch==1.7.1=py3.7_cuda10.2.89_cudnn7.6.5_0
+  - easydict
+prefix: /home/amnon/.conda/envs/GC_RANSAC_5
