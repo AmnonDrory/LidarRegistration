@@ -1,9 +1,9 @@
-# Stress Testing LiDAR Registration
+# Stress-Testing Point Cloud Registration on Automotive LiDAR
 To train and test point-cloud registration algorithms with automotive LiDAR datasets, one must select a subset of point-cloud pairs. Previously, simple heuristics were used to create such registration sets, e.g., using a spacing of 10 meters. We provide a smart algorithm that selects challenging sets, that include a balanced sampling from the various situations that appear in a dataset (various offsets, rotations, etc.). 
 
 We provide registration sets that were produced by our algorithm, for the Apollo-Southbay and NuScenes datasets. In our paper, we use these sets to train and benchmark some recent and popular registration algorithms. We use FCGF deep features with a variety of robust motion-estimation algorithms. Surprisingly, we find that the fastest and most accurate results come not from recent algorithms such as Teaser++ and PointDSC, but rather from a modern version of RANSAC. 
 
-Our paper: Stress Testing LiDAR Registration / Amnon Drory, Raja Giryes, Shai Avidan
+Our paper: [Stress-Testing Point Cloud Registration on Automotive LiDAR / Amnon Drory, Raja Giryes, Shai Avidan](https://ml4ad.github.io/files/papers2022/Stress-Testing%20Point%20Cloud%20Registration%20on%20Automotive%20LiDAR.pdf)
 
 ## Contents of Directories
 
@@ -16,7 +16,7 @@ Our paper: Stress Testing LiDAR Registration / Amnon Drory, Raja Giryes, Shai Av
 6. *GC-RANSAC*: Some additions to [GC-RANSAC code](https://github.com/danini/graph-cut-ransac), including Edge-Length Constraints. 
 
 ## Requirements
-There are minimal requirements for the code to create registration sets. Reproducing our experiments, however, requires a variety of code packages, leading unfortunately to incompatibilities and
+The code for creating registration sets has quite minimal requirements. Reproducing our experiments, however, requires a variety of code packages, leading unfortunately to incompatibilities and
 complications. In the *Requirements* directory we provided .yml files that detail two environments we used: 
 one for experiments involving the GC-RANSAC code base, and one for other experiments. 
 To recreate these environment, we recommend running:
