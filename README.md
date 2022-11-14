@@ -1,9 +1,15 @@
 # Stress-Testing Point Cloud Registration on Automotive LiDAR
-To train and test point-cloud registration algorithms with automotive LiDAR datasets, one must select a subset of point-cloud pairs. Previously, simple heuristics were used to create such registration sets, e.g., using a spacing of 10 meters. We provide a smart algorithm that selects challenging sets, that include a balanced sampling from the various situations that appear in a dataset (various offsets, rotations, etc.). 
+
+Our ML4AD @ NeurIPS 2022 paper: [Stress-Testing Point Cloud Registration on Automotive LiDAR / Amnon Drory, Raja Giryes, Shai Avidan](https://ml4ad.github.io/files/papers2022/Stress-Testing%20Point%20Cloud%20Registration%20on%20Automotive%20LiDAR.pdf)
+
+To train and test rigid point-cloud registration (PCR) algorithms with automotive LiDAR datasets, one must select a subset of point-cloud pairs. Previously, simple heuristics were used to create such registration sets, e.g., using a spacing of 10 meters. We provide a smart algorithm that selects challenging sets, that include a balanced sampling from the various situations that appear in a dataset (various offsets, rotations, etc.). 
+![Screenshot from 2022-11-14 08-21-43](https://user-images.githubusercontent.com/12913832/201589994-249eefe2-2707-4e48-8e93-03f8abd7277b.png)
 
 We provide registration sets that were produced by our algorithm, for the Apollo-Southbay and NuScenes datasets. In our paper, we use these sets to train and benchmark some recent and popular registration algorithms. We use FCGF deep features with a variety of robust motion-estimation algorithms. Surprisingly, we find that the fastest and most accurate results come not from recent algorithms such as Teaser++ and PointDSC, but rather from a modern version of RANSAC. 
 
-Our paper: [Stress-Testing Point Cloud Registration on Automotive LiDAR / Amnon Drory, Raja Giryes, Shai Avidan](https://ml4ad.github.io/files/papers2022/Stress-Testing%20Point%20Cloud%20Registration%20on%20Automotive%20LiDAR.pdf)
+![time_and_recall_comparison_B_to_B_tight](https://user-images.githubusercontent.com/12913832/201589682-48c5cc9e-eb58-4e3a-9c01-058c58832b14.png)
+
+This project contains our registration sets, code for creating such sets, and the code we used for benchmarking various PCR algorithms. 
 
 ## Contents of Directories
 
@@ -17,16 +23,16 @@ Our paper: [Stress-Testing Point Cloud Registration on Automotive LiDAR / Amnon 
 
 ## Requirements
 The code for creating registration sets has quite minimal requirements. Reproducing our experiments, however, requires a variety of code packages, leading unfortunately to incompatibilities and
-complications. In the *Requirements* directory we provided .yml files that detail two environments we used: 
+complications. In the *Requirements* directory we provided as a reference .yml files that detail two environments we used: 
 one for experiments involving the GC-RANSAC code base, and one for other experiments. 
-To recreate these environment, we recommend running:
+To recreate these environments, we recommend running:
 ```bash
 conda env create -f requirements/basis.yml
 ```
 And then installing the [minkowski engine](https://github.com/NVIDIA/MinkowskiEngine), which is needed
 for FCGF and DGR. 
 Additional code packages, such as GC-RANSAC and TEASER++, might not be able to coexist and will need to
-be installed in separate environments. 
+be installed each in a separate environment. 
 
 ## Datasets 
 Our balanced registration sets are selected from Apollo-Southbay and NuScenes. 
