@@ -27,7 +27,7 @@ complications. In the *Requirements* directory we provided as a reference .yml f
 one for experiments involving the GC-RANSAC code base, and one for other experiments. 
 To recreate these environments, we recommend running:
 ```bash
-conda env create -f requirements/basis.yml
+conda env create -f Requirements/basis.yml
 ```
 And then installing the [minkowski engine](https://github.com/NVIDIA/MinkowskiEngine), which is needed
 for FCGF and DGR. 
